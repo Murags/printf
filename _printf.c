@@ -60,7 +60,7 @@ int _printf(const char *format, ...)
 	va_list ap;
 
 	if (format == NULL)
-		return NULL;
+		return (-1);
 
 	selector funcs[] = {
 		{"c", print_char},

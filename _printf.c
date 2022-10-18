@@ -84,7 +84,12 @@ int _printf(const char *format, ...)
 
 			else if (*(format + i) == '%')
 				write(1, (format + i), 1);
-
+			else
+			{
+				_putchar('%');
+				_putchar(*(format + i));
+				counter++;
+			}
 		}
 		else
 		{

@@ -68,6 +68,10 @@ int _printf(const char *format, ...)
 	};
 	if (format == NULL)
 		return (-1);
+	for (i = 0; *(format + i) != '\0'; i++)
+		;
+	if (i <= 0)
+		return (0);
 
 	va_start(ap, format);
 	for (i = 0; *(format + i) != '\0'; i++)

@@ -6,6 +6,12 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
+
+/**
+ * struct select - defines a structure for symbols and functions
+ * @ident:format specifier
+ * @f: printing function
+ */
 typedef struct select
 {
 	char *ident;

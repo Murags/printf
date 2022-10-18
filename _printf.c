@@ -1,12 +1,18 @@
 #include "main.h"
-
+/**
+ * print_char - prints a char
+ * @ap: argument parameters
+ */
 void print_char(va_list ap)
 {
 	char output[1] = {va_arg(ap, int)};
 
 	write(1, &output, 1);
 }
-
+/**
+ * print_string - prints a string
+ * @ap: argument parameters
+ */
 void print_string(va_list ap)
 {
 	char *str;
@@ -17,26 +23,37 @@ void print_string(va_list ap)
 	for (len = 0; *(str + len) != '\0'; len++)
 		;
 
-        write(1, str, len);
+	write(1, str, len);
 }
+/**
+ * decimaltobinary - converts decimal to binary
+ * @ap: argument parameters
+ */
 void decimaltobinary(va_list ap)
 {
 	int num = va_arg(ap, int), binaryNum[32], i = 0, j;
-	if (num == 0) 
-	{
-      		_putchar('0');
-      		return;
-    	}
 
-   	while (num > 0) 
+	if (num == 0)
 	{
-      		binaryNum[i++] = num % 2;
-      		num /= 2;
-   	}
-   
-	for (j = i-1; j >= 0; j--)
+		_putchar('0');
+		return;
+	}
+
+	while (num > 0)
+	{
+		binaryNum[i++] = num % 2;
+		num /= 2;
+	}
+
+	for (j = i - 1; j >= 0; j--)
 		_putchar((binaryNum[j] + 48));
 }
+/**
+ * _printf - function that produces output according to a format.
+ * @format: string to be printed in a specifc format
+ *
+ * Return: Number of characters printed
+ */
 int _printf(const char *format, ...)
 {
 	int i, j, counter = 0;

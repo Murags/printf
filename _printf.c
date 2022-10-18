@@ -59,6 +59,9 @@ int _printf(const char *format, ...)
 	int i, j, counter = 0;
 	va_list ap;
 
+	if (format == NULL)
+		return NULL;
+
 	selector funcs[] = {
 		{"c", print_char},
 		{"s", print_string},

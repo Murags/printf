@@ -66,6 +66,9 @@ int _printf(const char *format, ...)
 		{"i", print_int},
 		{"b", decimaltobinary}
 	};
+	if (format == NULL)
+		return (-1);
+
 	va_start(ap, format);
 	for (i = 0; *(format + i) != '\0'; i++)
 	{

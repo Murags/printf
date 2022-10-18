@@ -5,7 +5,7 @@
  */
 void print_char(va_list ap)
 {
-	char output[1] = {va_arg(ap, int)};
+	char output = va_arg(ap, int);
 
 	write(1, &output, 1);
 }

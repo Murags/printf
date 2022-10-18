@@ -59,7 +59,7 @@ int _printf(const char *format, ...)
 	int i, j, counter = 0;
 	va_list ap;
 
-	if (format == NULL)
+	if (format == '\0')
 		return (-1);
 
 	selector funcs[] = {
@@ -70,7 +70,6 @@ int _printf(const char *format, ...)
 		{"b", decimaltobinary}
 	};
 	va_start(ap, format);
-
 	for (i = 0; *(format + i) != '\0'; i++)
 	{
 		j = 0;

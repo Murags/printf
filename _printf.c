@@ -1,0 +1,80 @@
+#include "main.h"
+
+void print_char(va_list ap)
+{
+	char output[1] = {va_arg(ap, int)};
+
+	write(1, &output, 1);
+}
+
+void print_string(va_list ap)
+{
+	char *str;
+	int len;
+
+	str = va_arg(ap, char *);
+
+	for (len = 0; *(str + len) != '\0'; len++)
+		;
+
+        write(1, str, len);
+}
+void decimaltobinary(va_list ap)
+{
+	int num = va_arg(ap, int), binaryNum[32], i = 0, j;
+	if (num == 0) 
+	{
+      		_putchar('0');
+      		return;
+    	}
+
+   	while (num > 0) 
+	{
+      		binaryNum[i++] = num % 2;
+      		num /= 2;
+   	}
+   
+	for (j = i-1; j >= 0; j--)
+		_putchar((binaryNum[j] + 48));
+}
+int _printf(const char *format, ...)
+{
+	int i, j, counter = 0;
+	va_list ap;
+
+	selector funcs[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{"d", print_int},
+		{"i", print_int},
+		{"b", decimaltobinary}
+	};
+	va_start(ap, format);
+
+	for (i = 0; *(format + i) != '\0'; i++)
+	{
+		j = 0;
+		if (*(format + i) == '%')
+		{
+			i++;
+			while (j < 5 && (*(format + i) != *(funcs[j].ident)))
+				j++;
+
+			if (j < 5)
+			{
+				funcs[j].f(ap);
+			}
+			else
+			{
+				write(1, (format + i), 1);
+			}
+		}
+		else
+		{
+			write(1, (format + i), 1);
+		}
+		counter++;
+	}
+	va_end(ap);
+	return (counter);
+}

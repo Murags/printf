@@ -80,13 +80,11 @@ int _printf(const char *format, ...)
 				j++;
 
 			if (j < 5)
-			{
 				funcs[j].f(ap);
-			}
-			else
-			{
+
+			else if (*(format + i) == '%')
 				write(1, (format + i), 1);
-			}
+
 		}
 		else
 		{

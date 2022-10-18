@@ -76,6 +76,8 @@ int _printf(const char *format, ...)
 		if (*(format + i) == '%')
 		{
 			i++;
+			if (*(format + i) == '\0')
+				return (-1);
 			while (j < 5 && (*(format + i) != *(funcs[j].ident)))
 				j++;
 

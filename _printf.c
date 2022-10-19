@@ -20,11 +20,12 @@ int print_string(va_list ap)
 	int len;
 
 	str = va_arg(ap, char *);
-
-	for (len = 0; *(str + len) != '\0'; len++)
-		;
-	write(1, str, len);
-	return (len);
+	if (str)
+		for (len = 0; *(str + len) != '\0'; len++)
+			;
+			write(1, str, len);
+		
+		return (len);
 }
 /**
  * decimaltobinary - converts decimal to binary

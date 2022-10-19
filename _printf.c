@@ -6,9 +6,14 @@
 int print_char(va_list ap)
 {
 	char output = va_arg(ap, int);
-
-	write(1, &output, 1);
-	return (1);
+	
+	if (output)
+	{
+		write(1, &output, 1);
+		return (1);
+	}
+	write(1, "(null)", 6);
+	return (6);
 }
 /**
  * print_string - prints a string

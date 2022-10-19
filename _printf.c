@@ -23,11 +23,7 @@ int get_func(const char *format, va_list ap)
 		{
 			i++;
 			if (*(format + i) == '\0')
-			{
-				_putchar('%');
-				size++;
-				return (size + counter);
-			}
+				return (-1);
 			while (j < 5 && (*(format + i) != *(funcs[j].ident)))
 				j++;
 

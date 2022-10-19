@@ -32,5 +32,5 @@ int print_int(va_list ap)
 	{
 		_putchar(((num / counter) % 10) + 48);
 	}
-	return 0;
+	return (0);
 }

@@ -7,7 +7,7 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-int get_func(const char *format,va_list ap);
+int get_func(const char *format, va_list ap);
 
 /**
  * struct select - defines a structure for symbols and functions

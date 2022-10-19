@@ -4,7 +4,7 @@
  * @ap: argument list passed to the function
  * Return: Nothing
  */
-void print_int(va_list ap)
+int print_int(va_list ap)
 {
 	unsigned int num, d, counter;
 	int n = va_arg(ap, int);
@@ -32,4 +32,5 @@ void print_int(va_list ap)
 	{
 		_putchar(((num / counter) % 10) + 48);
 	}
+	return 0;
 }

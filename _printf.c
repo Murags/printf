@@ -3,17 +3,18 @@
  * print_char - prints a char
  * @ap: argument parameters
  */
-void print_char(va_list ap)
+int print_char(va_list ap)
 {
 	char output = va_arg(ap, int);
 
 	write(1, &output, 1);
+	return (1);
 }
 /**
  * print_string - prints a string
  * @ap: argument parameters
  */
-void print_string(va_list ap)
+int print_string(va_list ap)
 {
 	char *str;
 	int len;
@@ -22,21 +23,21 @@ void print_string(va_list ap)
 
 	for (len = 0; *(str + len) != '\0'; len++)
 		;
-
 	write(1, str, len);
+	return (len);
 }
 /**
  * decimaltobinary - converts decimal to binary
  * @ap: argument parameters
  */
-void decimaltobinary(va_list ap)
+int decimaltobinary(va_list ap)
 {
 	int num = va_arg(ap, int), binaryNum[32], i = 0, j;
 
 	if (num == 0)
 	{
 		_putchar('0');
-		return;
+		return 0;
 	}
 
 	while (num > 0)
@@ -47,6 +48,7 @@ void decimaltobinary(va_list ap)
 
 	for (j = i - 1; j >= 0; j--)
 		_putchar((binaryNum[j] + 48));
+	return (0);
 }
 /**
  * _printf - function that produces output according to a format.
@@ -56,7 +58,7 @@ void decimaltobinary(va_list ap)
  */
 int _printf(const char *format, ...)
 {
-	int i, j, counter = 0;
+	int i, j, counter = 0, size = 0;
 	va_list ap;
 
 	selector funcs[] = {
@@ -86,23 +88,27 @@ int _printf(const char *format, ...)
 				j++;
 
 			if (j < 5)
-				funcs[j].f(ap);
+				size = funcs[j].f(ap);
 
 			else if (*(format + i) == '%')
+			{
 				write(1, (format + i), 1);
+				size += 1;
+			}
+				
 			else
 			{
 				_putchar('%');
 				_putchar(*(format + i));
-				counter++;
+				size += 2;
 			}
 		}
 		else
 		{
 			write(1, (format + i), 1);
+			counter++;
 		}
-		counter++;
 	}
 	va_end(ap);
-	return (counter);
+	return (counter + size);
 }

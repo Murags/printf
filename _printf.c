@@ -12,6 +12,7 @@ int print_char(va_list ap)
 		write(1, &output, 1);
 		return (1);
 	}
+	return (0);
 }
 /**
  * print_string - prints a string

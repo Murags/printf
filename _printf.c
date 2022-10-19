@@ -7,12 +7,8 @@ int print_char(va_list ap)
 {
 	char output = va_arg(ap, int);
 	
-	if (output)
-	{
-		write(1, &output, 1);
-		return (1);
-	}
-	return (0);
+	write(1, &output, 1);
+	return (1);
 }
 /**
  * print_string - prints a string

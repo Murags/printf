@@ -21,11 +21,14 @@ int print_string(va_list ap)
 
 	str = va_arg(ap, char *);
 	if (str)
+	{
 		for (len = 0; *(str + len) != '\0'; len++)
 			;
 			write(1, str, len);
-		
-		return (len);
+			return (len);
+	}
+	write (1, "(null)", 6);
+	return (6);
 }
 /**
  * decimaltobinary - converts decimal to binary

@@ -1,55 +1,5 @@
 #include "main.h"
 /**
-*get_func - produces output according to format
-*
-*@format: string to be printed
-*@ap: argument parameters
-*
-*Return: number of charaters printed else 0
-*/
-int get_func(const char *format, va_list ap)
-{
-	int i, j, counter = 0, size = 0, arrsize;
-
-	selector funcs[] = {
-		{"c", print_char}, {"s", print_string},
-		{"d", print_int}, {"i", print_int},
-		{"b", decimaltobinary}
-	};
-	arrsize = sizeof(funcs) / sizeof(funcs[0]);
-	for (i = 0; *(format + i) != '\0'; i++)
-	{
-		j = 0;
-		if (*(format + i) == '%')
-		{
-			i++;
-			if (*(format + i) == '\0')
-				return (-1);
-			while (j < arrsize && (*(format + i) != *(funcs[j].ident)))
-				j++;
-
-			if (j < arrsize)
-				size = funcs[j].f(ap);
-			else if (*(format + i) == '%')
-			{
-				write(1, (format + i), 1);
-				size += 1;
-			}
-			else
-			{
-				_putchar('%'), _putchar(*(format + i));
-				size += 2;
-			}
-		}
-		else
-		{
-			write(1, (format + i), 1);
-			counter++;
-		}
-	}
-	return (counter + size);
-}
-/**
  * _printf - function that produces output according to a format.
  * @format: string to be printed in a specifc format
  *

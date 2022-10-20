@@ -2,35 +2,35 @@
 
 int print_int(va_list ap)
 {
-	long int b = 0;
-	long int c = 1;
+	long int d = 0;
+	long int counter = 1;
 	long int num = 0;
-	int len = 0;
+	int size = 0;
 
 	num = va_arg(ap, int);
 	if (num < 0)
 	{
 		_putchar('-');
-		num = num * (-1);
-		len = 1;
+		num = -num;
+		size++;
 	}
-	while (c <= num)
+	while (counter <= num)
 	{
-		c = c * 10;
+		counter *= 10;
 	}
-	c = c / 10;
-	b = num;
-	while (c > 0)
+	counter /= 10;
+	d = num;
+	while (counter > 0)
 	{
-		b = num / c;
-		_putchar((b % 10) + '0');
-		c = c / 10;
-		len = len + 1;
+		d = num / counter;
+		_putchar((d % 10) + 48);
+		counter /= 10;
+		size++;
 	}
 	if (num == 0)
 	{
-		_putchar(0 + 48);
-		len = len + 1;
+		_putchar(48);
+		size++;
 	}
-	return (len);
+	return (size);
 }

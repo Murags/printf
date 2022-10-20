@@ -8,7 +8,7 @@
 int _putchar(char c);
 int _printf(const char *format, ...);
 int (*get_func(const char format))(va_list);
-	
+
 /**
  * struct select - defines a structure for symbols and functions
  * @ident:format specifier

@@ -1,7 +1,5 @@
 #include "main.h"
 /**
-<<<<<<< HEAD
-=======
 *get_func - produces output according to format
 *
 *@format: string to be printed
@@ -52,7 +50,6 @@ int get_func(const char *format, va_list ap)
 	return (counter + size);
 }
 /**
->>>>>>> 8bbc3a607091ea2ba8c68d17084a2293dcf8b803
  * _printf - function that produces output according to a format.
  * @format: string to be printed in a specifc format
  *

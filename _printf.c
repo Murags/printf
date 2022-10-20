@@ -2,7 +2,7 @@
 /**
 *get_func - produces output according to format
 *
-*@str: string to be printed
+*@format: string to be printed
 *@ap: argument parameters
 *
 *Return: number of charaters printed else 0
@@ -12,8 +12,8 @@ int get_func(const char *format, va_list ap)
 	int i, j, counter = 0, size = 0;
 
 	selector funcs[] = {
-		{"c", print_char},{"s", print_string},
-		{"d", print_int},{"i", print_int},
+		{"c", print_char}, {"s", print_string},
+		{"d", print_int}, {"i", print_int},
 		{"b", decimaltobinary}
 	};
 	for (i = 0; *(format + i) != '\0'; i++)

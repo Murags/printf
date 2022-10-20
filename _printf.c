@@ -9,13 +9,14 @@
 */
 int get_func(const char *format, va_list ap)
 {
-	int i, j, counter = 0, size = 0;
+	int i, j, counter = 0, size = 0, arrsize;
 
 	selector funcs[] = {
 		{"c", print_char}, {"s", print_string},
 		{"d", print_int}, {"i", print_int},
 		{"b", decimaltobinary}
 	};
+	arrsize = sizeof(funcs) / sizeof(funcs[0]);
 	for (i = 0; *(format + i) != '\0'; i++)
 	{
 		j = 0;
@@ -24,10 +25,10 @@ int get_func(const char *format, va_list ap)
 			i++;
 			if (*(format + i) == '\0')
 				return (-1);
-			while (j < 5 && (*(format + i) != *(funcs[j].ident)))
+			while (j < arrsize && (*(format + i) != *(funcs[j].ident)))
 				j++;
 
-			if (j < 5)
+			if (j < arrsize)
 				size = funcs[j].f(ap);
 			else if (*(format + i) == '%')
 			{

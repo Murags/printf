@@ -7,11 +7,12 @@
 int print_int(va_list ap)
 {
 	unsigned int num, d, counter;
-	int n = va_arg(ap, int);
+	int n = va_arg(ap, int), size = 0;
 
 	if (n < 0)
 	{
 		_putchar(45);
+		size++;
 		num = -n;
 	}
 	else
@@ -31,6 +32,7 @@ int print_int(va_list ap)
 	for (; counter >= 1; counter /= 10)
 	{
 		_putchar(((num / counter) % 10) + 48);
+		size++;
 	}
-	return (0);
+	return (size);
 }

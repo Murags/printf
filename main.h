@@ -27,5 +27,6 @@ int print_int(va_list ap);
 int print_int(va_list ap);
 int decimaltobinary(va_list ap);
 int print_unsigned_int(va_list ap);
+int print_R(va_list ap);
 
 #endif /*MAIN_h*/

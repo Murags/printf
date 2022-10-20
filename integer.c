@@ -1,41 +1,41 @@
 #include "main.h"
+#include <stdlib.h>
+#include <stdarg.h>
 /**
- * print_int - prints integer
- * @ap: argument list passed to the function
- *
- * Return: size
- */
+* print_int - Print number
+* @ap: va_list
+*
+* Return: count.
+*/
 int print_int(va_list ap)
 {
-	long int num;
-	int next_sum, counter = 0, next;
+	int a[10];
+	int j, m, i, sum, count;
 
-	num = va_arg(ap, int);
-
-	if (num < 0)
+	i = va_arg(ap, int);
+	count = 0;
+	m = 1000000000;
+	a[0] = i / m;
+	for (j = 1; j < 10; j++)
 	{
-		num *= -1;
-		_putchar(45);
-		counter++;
+		m = m / 10;
+		a[j] = (i / m) % 10;
 	}
-	if (num >= 0 && num <= 9)
+	if (i < 0)
 	{
-		_putchar(num + 48);
-		counter++;
+		_putchar('-');
+		count++;
+		for (j = 0; j < 10; j++)
+			a[j] *= -1;
 	}
-	if (num > 9)
-		next = 10;
-	while (num / next > 9)
+	for (j = 0, sum = 0; j < 10; j++)
 	{
-		next *= 10;
+		sum += a[j];
+		if (sum != 0 || j == 9)
+		{
+			_putchar('0' + a[j]);
+			count++;
+		}
 	}
-	while (next > 0)
-	{
-		next_sum = num / next;
-		num = num % next;
-		_putchar(next_sum + 48);
-		next = next / 10;
-		counter++;
-	}
-	return (counter++);
+	return (count);
 }

@@ -24,9 +24,6 @@ int print_char(va_list ap);
 int print_string(va_list ap);
 int print_int(va_list ap);
 int decimaltobinary(va_list ap);
-<<<<<<< HEAD
 int print_R(va_list ap);
-=======
 
->>>>>>> fb7346c2022ecbb0f51fd5a8d7a21e4c9d0cf0bd
-#endif
+#endif /*MAIN_h*/

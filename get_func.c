@@ -19,6 +19,8 @@ int (*get_func(const char format))(va_list)
 		{'R', print_R},
 		{'X', print_X},
 		{'x', print_x},
+		{'u', print_u},
+		{'o', print_o},
 		{'\0', NULL}
 	};
 

@@ -32,5 +32,7 @@ int print_address(va_list ap);
 int print_R(va_list ap);
 int print_X(va_list ap);
 int print_x(va_list ap);
+int print_o(va_list ap);
+int print_u(va_list ap);
 
 #endif /*MAIN_h*/

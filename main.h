@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <stddef.h>
+#include <stdlib.h>
 
 int _putchar(char c);
 int _printf(const char *format, ...);
@@ -23,4 +24,5 @@ int print_char(va_list ap);
 int print_string(va_list ap);
 int print_int(va_list ap);
 int decimaltobinary(va_list ap);
+int print_R(va_list ap);
 #endif

@@ -2,42 +2,40 @@
 /**
  * print_int - prints integer
  * @ap: argument list passed to the function
- * Return: Nothing
+ *
+ * Return: size
  */
 int print_int(va_list ap)
 {
-	unsigned int num, d, counter;
-	int n = va_arg(ap, int), size = 0;
+	long int num;
+	int next_sum, counter = 0, next;
 
-	if (!n)
+	num = va_arg(ap, int);
+
+	if (num < 0)
 	{
-		write(1, "Null)", 4);
-		return (4);
-	}
-	if (n < 0)
-	{
+		num *= -1;
 		_putchar(45);
-		size++;
-		num = -n;
+		counter++;
 	}
-	else
+	if (num >= 0 && num <= 9)
 	{
-		num = n;
+		_putchar(num + 48);
+		counter++;
 	}
-
-	d = num;
-	counter = 1;
-
-	while (d > 9)
+	if (num > 9)
+		next = 10;
+	while (num / next > 9)
 	{
-		d /= 10;
-		counter = counter * 10;
+		next *= 10;
 	}
-
-	for (; counter >= 1; counter /= 10)
+	while (next > 0)
 	{
-		_putchar(((num / counter) % 10) + 48);
-		size++;
+		next_sum = num / next;
+		num = num % next;
+		_putchar(next_sum + 48);
+		next = next / 10;
+		counter++;
 	}
-	return (size);
+	return (counter++);
 }

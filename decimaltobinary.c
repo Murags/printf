@@ -8,6 +8,11 @@ int decimaltobinary(va_list ap)
 {
 	int num = va_arg(ap, int), binaryNum[32], i = 0, j, size = 0;
 
+	if (!num)
+	{
+		write(1, "Null", 4);
+		return (4);
+	}
 	if (num == 0)
 	{
 		_putchar('0');

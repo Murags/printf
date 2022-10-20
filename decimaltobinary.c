@@ -2,7 +2,7 @@
 /**
  * decimaltobinary - converts decimal to binary
  * @ap: argument parameters
- * Return: 0
+ * Return: size
  */
 int decimaltobinary(va_list ap)
 {

@@ -4,7 +4,7 @@
 *@ap: string to print
 *
 *Return: number of chars printed
-*/ 
+*/
 int print_R(va_list ap)
 {
 	int i;

@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_u - prints an unsigned in in decimal notation
+ * print_unsigned_int - prints an unsigned in in decimal notation
  * @ap: unsigned int to print
  *
  * Return: number of digits printed

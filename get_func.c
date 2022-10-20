@@ -14,7 +14,7 @@ int (*get_func(const char format))(va_list)
 		{'d', print_int},
 		{'i', print_int},
 		{'b', decimaltobinary},
-		{'b', print_unsigned_int},
+		{'u', print_unsigned_int},
 		{'\0', NULL}
 	};
 

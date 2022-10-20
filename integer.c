@@ -11,7 +11,7 @@ int print_int(va_list ap)
 
 	if (!n)
 	{
-		write(1, "Null)", 4);
+		write(1, "Null", 4);
 		return (4);
 	}
 	if (n < 0)

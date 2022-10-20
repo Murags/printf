@@ -39,5 +39,11 @@ int print_int(va_list ap)
 		_putchar(((num / counter) % 10) + 48);
 		size++;
 	}
+	if (num == 0)
+	{
+		_putchar(0 + 48);
+		size++;
+	}
+	
 	return (size);
 }

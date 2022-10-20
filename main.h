@@ -20,6 +20,7 @@ typedef struct select
 	char ident;
 	int (*f)(va_list arg);
 } selector;
+
 int print_char(va_list ap);
 int print_string(va_list ap);
 int print_int(va_list ap);

@@ -4,7 +4,7 @@
  * @ap: argument list passed to the function
  * Return: Nothing
  */
-int print_int(va_list ap)
+int print_integer(va_list ap)
 {
 	unsigned int num, d, counter;
 	int n = va_arg(ap, int), size = 0;

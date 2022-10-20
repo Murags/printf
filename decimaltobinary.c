@@ -6,7 +6,7 @@
  */
 int decimaltobinary(va_list ap)
 {
-	int num = va_arg(ap, int), binaryNum[32], i = 0, j, size = 0;
+	long int num = va_arg(ap, unsigned int), binaryNum[32], i = 0, j, size = 0;
 
 	if (!num)
 	{

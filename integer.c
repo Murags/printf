@@ -9,6 +9,11 @@ int print_int(va_list ap)
 	unsigned int num, d, counter;
 	int n = va_arg(ap, int), size = 0;
 
+	if (!n)
+	{
+		write(1, "Null)", 4);
+		return (4);
+	}
 	if (n < 0)
 	{
 		_putchar(45);

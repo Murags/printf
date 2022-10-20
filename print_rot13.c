@@ -15,7 +15,7 @@ int print_R(va_list ap)
 
 	str = va_arg(ap, char *);
 	if (str == NULL)
-		str = "(ahyy)";
+		return (-1);
 	for (i = 0; str[i]; i++)
 	{
 		for (j = 0; in[j]; j++)

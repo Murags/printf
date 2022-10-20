@@ -7,7 +7,7 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-int get_func(const char *format, va_list ap);
+int (*get_func(const char format))(va_list);
 
 /**
  * struct select - defines a structure for symbols and functions
@@ -16,7 +16,7 @@ int get_func(const char *format, va_list ap);
  */
 typedef struct select
 {
-	char *ident;
+	char ident;
 	int (*f)(va_list arg);
 } selector;
 int print_char(va_list ap);

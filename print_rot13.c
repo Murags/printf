@@ -7,31 +7,27 @@
  */
 int print_R(va_list ap)
 {
+	int i;
+	int x;
 	char *str;
-	unsigned int i, j;
-	int count = 0;
-	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char s[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char u[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	str = va_arg(ap, char *);
 	if (str == NULL)
 		return (-1);
-	for (i = 0; str[i]; i++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (j = 0; in[j]; j++)
+		for (x = 0; x <= 52; x++)
 		{
-			if (in[j] == str[i])
+			if (str[i] == s[x])
 			{
-				_putchar(out[j]);
-				count++;
+				_putchar(u[x]);
 				break;
 			}
 		}
-		if (!in[j])
-		{
+		if (x == 53)
 			_putchar(str[i]);
-			count++;
-		}
 	}
-	return (count);
+	return (i);
 }

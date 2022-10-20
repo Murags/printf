@@ -17,6 +17,8 @@ int (*get_func(const char format))(va_list)
 		{'u', print_unsigned_int},
 		{'p', print_address},
 		{'R', print_R},
+		{'X', print_X},
+		{'x', print_x},
 		{'\0', NULL}
 	};
 
